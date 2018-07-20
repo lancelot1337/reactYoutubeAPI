@@ -11,12 +11,12 @@ const SearchBar = () => {   //functional component
 //ES6 class based component
 class SearchBar extends Component{
     //declare event handeler
-    onInputChange(event) {
-        //the SyntheticEvent object will be reused and all properties will be nullified after the event callback has been invoked.
-        //event.persist() will remove the synthetic event from the pool and allow references to the event to be retained by user code.
-        event.persist();
-        console.log(event);
-    }
+    // onInputChange(event) {
+    //     //the SyntheticEvent object will be reused and all properties will be nullified after the event callback has been invoked.
+    //     //event.persist() will remove the synthetic event from the pool and allow references to the event to be retained by user code.
+    //     event.persist();
+    //     console.log(event);
+    // }
     
     // //declare event handeler
     // onInputChange(event) {
@@ -27,7 +27,9 @@ class SearchBar extends Component{
     render() {
         return(
             //onChange is emitted when input changes, it is not UD
-            <input onChange = {this.onInputChange} />
+            <input onChange = {(event) => {
+                console.log(event.target.value)
+            }} />
         );
     }
 }
