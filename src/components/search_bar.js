@@ -22,14 +22,30 @@ class SearchBar extends Component{
     // onInputChange(event) {
     //     console.log(event.target.value)
     // }
-    //every class component has a function to render
+    
+    //constructor for state, state stores event, whenever
+    //state is changes, component immediately rerenders including children
+    constructor(props) {
+        //calling component constructor
+        super(props);
 
+        //creating a new obj (with property 'term' which stores search term) and storing it in this.state
+        this.state = { term: ' '}
+    }
+    
+    //every class component has a function to render
     render() {
+
         return(
             //onChange is emitted when input changes, it is not UD
-            <input onChange = {(event) => {
-                console.log(event.target.value)
-            }} />
+            <div>
+                <input onChange = {(event) => {
+                    //console.log(event.target.value)
+                    //saving the search term in state of component instance
+                    this.setState({ term: event.target.value })
+                }} />
+                //Value of search term: {this.state.term}
+            </div>
         );
     }
 }
