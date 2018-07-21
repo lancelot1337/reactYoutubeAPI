@@ -3,6 +3,7 @@ import React, {Component} from 'react'; //corelib, manage component
 import ReactDOM from 'react-dom'; //domlib
 import SearchBar from './components/search_bar'; //relative path is required
 import VideoList from './components/video_list';
+import VideoDetail from './components/video_detail'
 
 //for API search
 import YTSearch from 'youtube-api-search'
@@ -29,6 +30,7 @@ class App extends Component{
         return ( 
             <div>
                 <SearchBar />
+                <VideoDetail video={this.state.videos[0]}/>
                 <VideoList videos={this.state.videos}/>
             </div>
         );
