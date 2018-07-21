@@ -2,6 +2,7 @@
 import React, {Component} from 'react'; //corelib, manage component
 import ReactDOM from 'react-dom'; //domlib
 import SearchBar from './components/search_bar'; //relative path is required
+import VideoList from './components/video_list';
 
 //for API search
 import YTSearch from 'youtube-api-search'
@@ -24,9 +25,11 @@ class App extends Component{
     }
 
     render(){
+        //passing props
         return ( 
             <div>
                 <SearchBar />
+                <VideoList videos={this.state.videos}/>
             </div>
         );
     }
