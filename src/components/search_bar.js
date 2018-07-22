@@ -49,7 +49,7 @@ class SearchBar extends Component{
 
             //controller component
             //value is changed using state, and state is changed using event handler
-            <div>
+            <div className="search-bar">
                 <input 
                     value = {this.state.term}
                     onChange = {(event) => {
