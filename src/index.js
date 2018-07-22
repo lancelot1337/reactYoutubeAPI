@@ -17,11 +17,18 @@ const API_KEY = `AIzaSyB7ceLcVP5EK_kY4T2ixR65uLbpCmITf-M`
 class App extends Component{
     constructor(props) {
         super(props);
-        this.state = { videos: [] };
+        this.state = { 
+            videos: [],
+            selectedVideo: null
+        };
+
         YTSearch({key: API_KEY, term: "Linus Tech Tips"}, (videos) => {
             //this.setState({videos: videos});
             //for ES6
-            this.setState({videos});
+            this.setState({
+                videos: videos,
+                selectedVideo: videos[0]
+            });
         });
     }
 
@@ -30,7 +37,7 @@ class App extends Component{
         return ( 
             <div>
                 <SearchBar />
-                <VideoDetail video={this.state.videos[0]}/>
+                <VideoDetail video={this.state.selectedVideo}/>
                 <VideoList videos={this.state.videos}/>
             </div>
         );
