@@ -20,7 +20,7 @@ class App extends Component{
     constructor(props) {
         super(props);
         this.state = { 
-            vide os: [],
+            videos: [],
             selectedVideo: null
         };
         this.videoSearch('Linus Tech Tips')
