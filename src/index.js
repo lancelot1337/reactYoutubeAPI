@@ -1,3 +1,5 @@
+import _ from 'lodash';
+
 //import React
 import React, {Component} from 'react'; //corelib, manage component
 import ReactDOM from 'react-dom'; //domlib
@@ -18,7 +20,7 @@ class App extends Component{
     constructor(props) {
         super(props);
         this.state = { 
-            videos: [],
+            vide os: [],
             selectedVideo: null
         };
         this.videoSearch('Linus Tech Tips')
