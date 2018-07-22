@@ -30,7 +30,7 @@ class SearchBar extends Component{
         super(props);
 
         //creating a new obj (with property 'term' which stores search term) and storing it in this.state
-        this.state = { term: 'Initial'}
+        this.state = { term: ''}
     }
     
     //every class component has a function to render
@@ -50,14 +50,19 @@ class SearchBar extends Component{
             //controller component
             //value is changed using state, and state is changed using event handler
             <div className="search-bar">
-                <input 
+                <input
                     value = {this.state.term}
                     onChange = {(event) => {
-                        this.setState({term: event.target.value})
+                        this.onInputChange(event.target.value)
                     }}
                 />
             </div>
         );
+    };
+
+    onInputChange(term){
+        this.setState({term});
+        this.props.onSearchTermChange(term);
     }
 }
 
