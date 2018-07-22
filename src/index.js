@@ -38,10 +38,12 @@ class App extends Component{
     }
 
     render(){
+        //function can be called once every 300ms
+        const videoSearch = _.debounce((term) => { this.videoSearch(term) }, 300)
         //passing props
         return ( 
             <div>
-                <SearchBar onSearchTermChange={term => this.videoSearch(term)}/>
+                <SearchBar onSearchTermChange={videoSearch}/>
                 <VideoDetail video={this.state.selectedVideo}/>
                 <VideoList 
                     onVideoSelect = { (selectedVideo) => {
